@@ -13,8 +13,8 @@ public:
     void push(T item);
     T pop();
     T topitem();
-    bool empty();
-    bool full();
+    bool isempty();
+    bool isfull();
     void show();
 
 private:

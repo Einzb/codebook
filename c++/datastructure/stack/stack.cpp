@@ -33,7 +33,7 @@ template <class T>
 void Stack<T>::push(T item)
 {
     if(top == maxsize-1){
-        std::cout<<"Can't push!, Stack is full"<<std::endl;
+        std::cerr << "Can't push!, Stack is full" << std::endl;
     }
     else{
         data[++top] = item;
@@ -43,32 +43,44 @@ void Stack<T>::push(T item)
 template <class T>
 T Stack<T>::pop()
 {
-
+    if(top == -1){
+        std::cerr << "Can't pop, Stack is empty" << std::endl;
+    }
+    else{
+        return data[top--];
+    }
 }
 
 template <class T>
 T Stack<T>::topitem()
 {
-
+    if(top == -1){
+        std::cerr << "Stack is empty" << std::endl;
+    }
+    else{
+        return data[top];
+    }
 }
 
 template <class T>
-bool Stack<T>::empty()
+bool Stack<T>::isempty()
 {
-
+    if(top == -1) return true;
+    else return false;
 }
 
 template <class T>
-bool Stack<T>::full()
+bool Stack<T>::isfull()
 {
-
+    if(top == maxsize-1) return true;
+    else return false;
 }
 
 template <class T>
 void Stack<T>::show()
 {
     if(top == -1){
-        std::cout << "Stack is empty" << std::endl;
+        std::cerr << "Stack is empty" << std::endl;
     }
     else{
         for(int i=0; i<=top; ++i){
