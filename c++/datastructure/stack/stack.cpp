@@ -1,8 +1,15 @@
+// code by Jason Huang aka Einz
+// github: https://github.com/Einzb
+// website: https://einzmind.blogspot.tw
+// discord: https://discord.gg/G4jEeDC
+// email: jason199786109@gmail.com
+
 #include <iostream>
 #include "stack.h"
 
 const int defaultsize = 32;
 
+// Initial with default size
 template <class T>
 Stack<T>::Stack()
 {
@@ -11,6 +18,7 @@ Stack<T>::Stack()
     data = new int[defaultsize];
 }
 
+// Initial with given size
 template <class T>
 Stack<T>::Stack(int size)
 {
@@ -29,10 +37,11 @@ Stack<T>::~Stack()
     delete data;
 }
 
+// Given an element and add it to top of the stack
 template <class T>
 void Stack<T>::push(T item)
 {
-    if(top == maxsize-1){
+    if(isfull()){
         std::cerr << "Can't push!, Stack is full" << std::endl;
     }
     else{
@@ -40,10 +49,11 @@ void Stack<T>::push(T item)
     }
 }
 
+// Remove the top element in the stack and return it
 template <class T>
 T Stack<T>::pop()
 {
-    if(top == -1){
+    if(isempty()){
         std::cerr << "Can't pop, Stack is empty" << std::endl;
     }
     else{
@@ -51,6 +61,7 @@ T Stack<T>::pop()
     }
 }
 
+// Return the top element in the stack
 template <class T>
 T Stack<T>::topitem()
 {
@@ -62,6 +73,7 @@ T Stack<T>::topitem()
     }
 }
 
+// Check whether the stack is empty
 template <class T>
 bool Stack<T>::isempty()
 {
@@ -69,6 +81,7 @@ bool Stack<T>::isempty()
     else return false;
 }
 
+// Check whether the stack is full
 template <class T>
 bool Stack<T>::isfull()
 {
@@ -76,6 +89,7 @@ bool Stack<T>::isfull()
     else return false;
 }
 
+// Show all the elements in the stack
 template <class T>
 void Stack<T>::show()
 {

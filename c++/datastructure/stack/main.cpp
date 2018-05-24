@@ -1,4 +1,4 @@
-// Example of using stack
+// Example code of using my stack library
 
 #include <iostream>
 
